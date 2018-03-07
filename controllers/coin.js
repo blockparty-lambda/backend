@@ -1,6 +1,7 @@
 const ObjectId = require("mongodb").ObjectId;
-const Insight = require("bitcore-explorers").Insight;
 const bitcore = require("bitcore-lib");
+delete global._bitcore;
+const Insight = require("bitcore-explorers").Insight;
 const unit = bitcore.Unit;
 const { providers, utils, Wallet, _SigningKey } = require("ethers");
 const keythereum = require("keythereum");
