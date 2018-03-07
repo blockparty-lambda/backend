@@ -1,6 +1,6 @@
 const ObjectId = require("mongodb").ObjectId;
-const bitcore = require("bitcore-lib");
 const Insight = require("bitcore-explorers").Insight;
+const bitcore = require("bitcore-lib");
 const unit = bitcore.Unit;
 const { providers, utils, Wallet, _SigningKey } = require("ethers");
 const keythereum = require("keythereum");
@@ -236,7 +236,7 @@ const coinToFiat = async (wallet, fiat) => {
     eth: "ethereum",
     eth_test: "ethereum"
   }
-  
+
   let resp = await axios.get(`https://api.coinmarketcap.com/v1/ticker/${coinMap[wallet.coinAbbr]}`);
   const coinValue = resp.data[0].price_usd;
   const userCoinVal = coinValue * wallet.balance;
@@ -269,7 +269,7 @@ const sendBtcTest = (user, toAddress, amount, subject) => {
         let tx = bitcore.Transaction();
         tx.from(utxos);
 
-        // const balance = euros.reduce((total, amount) => total + amount); 
+        // const balance = euros.reduce((total, amount) => total + amount);
         // could use a reduce function
         let userSatoshiBalance = 0;
         for (var i = 0; i < utxos.length; i++) {
